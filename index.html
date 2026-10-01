@@ -1,0 +1,2651 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>Beyond Earth | Space Exploration</title>
+
+<meta name="description"
+content="A long-form article about space exploration, planets, galaxies, astronomy and the future of humanity.">
+
+<style>
+
+/* =====================================================
+   GLOBAL
+===================================================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:
+    Arial,
+    Helvetica,
+    sans-serif;
+
+    background:#eef2ff;
+
+    color:#172033;
+
+    line-height:1.85;
+
+    transition:
+    background .4s,
+    color .4s;
+}
+
+::selection{
+    background:#7c3aed;
+    color:white;
+}
+
+
+/* =====================================================
+   READING PROGRESS
+===================================================== */
+
+#progress{
+    position:fixed;
+
+    top:0;
+    left:0;
+
+    width:0%;
+
+    height:5px;
+
+    background:
+    linear-gradient(
+        90deg,
+        #ec4899,
+        #8b5cf6,
+        #06b6d4
+    );
+
+    z-index:99999;
+}
+
+
+/* =====================================================
+   NAVBAR
+===================================================== */
+
+.navbar{
+
+    position:sticky;
+
+    top:0;
+
+    z-index:5000;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    padding:17px 6%;
+
+    color:white;
+
+    background:
+    rgba(8,10,30,.94);
+
+    backdrop-filter:
+    blur(15px);
+
+    box-shadow:
+    0 5px 30px
+    rgba(0,0,0,.25);
+}
+
+.logo{
+
+    font-size:25px;
+
+    font-weight:900;
+
+    letter-spacing:1px;
+}
+
+.logo span{
+    color:#a78bfa;
+}
+
+.nav{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:24px;
+}
+
+.nav a{
+
+    color:#ddd;
+
+    text-decoration:none;
+
+    font-size:14px;
+
+    transition:.3s;
+}
+
+.nav a:hover{
+    color:#c4b5fd;
+}
+
+.theme{
+
+    border:1px solid #555;
+
+    background:#1d2035;
+
+    color:white;
+
+    padding:8px 13px;
+
+    border-radius:9px;
+
+    cursor:pointer;
+}
+
+
+/* =====================================================
+   HERO
+===================================================== */
+
+.hero{
+
+    min-height:720px;
+
+    display:flex;
+
+    align-items:center;
+
+    padding:100px 7%;
+
+    color:white;
+
+    position:relative;
+
+    overflow:hidden;
+
+    background:
+
+    radial-gradient(
+        circle at 15% 20%,
+        rgba(236,72,153,.35),
+        transparent 28%
+    ),
+
+    radial-gradient(
+        circle at 85% 70%,
+        rgba(6,182,212,.30),
+        transparent 30%
+    ),
+
+    linear-gradient(
+        135deg,
+        #05051a,
+        #151044,
+        #090b24
+    );
+}
+
+.stars{
+    position:absolute;
+
+    width:100%;
+    height:100%;
+
+    opacity:.5;
+
+    background-image:
+    radial-gradient(
+        white 1px,
+        transparent 1px
+    );
+
+    background-size:
+    55px 55px;
+
+    pointer-events:none;
+}
+
+.hero-content{
+
+    max-width:1100px;
+
+    margin:auto;
+
+    position:relative;
+
+    z-index:2;
+
+    animation:
+    appear 1s ease;
+}
+
+@keyframes appear{
+
+    from{
+        opacity:0;
+        transform:translateY(30px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+.badge{
+
+    display:inline-block;
+
+    padding:8px 16px;
+
+    border-radius:30px;
+
+    border:1px solid #625b8a;
+
+    background:
+    rgba(255,255,255,.08);
+
+    font-size:12px;
+
+    letter-spacing:1.5px;
+
+    text-transform:uppercase;
+}
+
+.hero h1{
+
+    font-size:
+    clamp(48px,8vw,96px);
+
+    line-height:.98;
+
+    letter-spacing:-4px;
+
+    margin-top:28px;
+}
+
+.gradient-text{
+
+    background:
+    linear-gradient(
+        90deg,
+        #f9a8d4,
+        #c4b5fd,
+        #67e8f9
+    );
+
+    -webkit-background-clip:text;
+
+    color:transparent;
+}
+
+.hero-description{
+
+    max-width:800px;
+
+    margin-top:30px;
+
+    font-size:21px;
+
+    color:#d5d5e5;
+}
+
+.hero-info{
+
+    display:flex;
+
+    flex-wrap:wrap;
+
+    gap:18px;
+
+    margin-top:35px;
+
+    color:#bdbbd0;
+
+    font-size:14px;
+}
+
+
+/* =====================================================
+   MAIN
+===================================================== */
+
+.container{
+
+    max-width:1150px;
+
+    margin:70px auto;
+
+    padding:0 20px;
+}
+
+.article{
+
+    background:white;
+
+    border-radius:28px;
+
+    overflow:hidden;
+
+    box-shadow:
+    0 20px 70px
+    rgba(30,40,100,.12);
+}
+
+.article-inner{
+
+    padding:65px;
+}
+
+
+/* =====================================================
+   IMAGES
+===================================================== */
+
+.main-image{
+
+    width:100%;
+
+    height:500px;
+
+    object-fit:cover;
+
+    display:block;
+}
+
+.image-box{
+
+    margin:55px 0;
+}
+
+.image-box img{
+
+    width:100%;
+
+    height:420px;
+
+    object-fit:cover;
+
+    border-radius:22px;
+
+    display:block;
+
+    box-shadow:
+    0 15px 40px
+    rgba(0,0,0,.15);
+
+    transition:
+    transform .4s;
+}
+
+.image-box img:hover{
+
+    transform:
+    scale(1.015);
+}
+
+.caption{
+
+    margin-top:10px;
+
+    color:#73788c;
+
+    font-size:13px;
+}
+
+
+/* =====================================================
+   TYPOGRAPHY
+===================================================== */
+
+.article p{
+
+    font-size:18px;
+
+    margin-bottom:25px;
+}
+
+.article h2{
+
+    font-size:40px;
+
+    line-height:1.2;
+
+    margin-top:75px;
+
+    margin-bottom:22px;
+
+    color:#302060;
+}
+
+.article h3{
+
+    font-size:24px;
+
+    margin-top:38px;
+
+    margin-bottom:15px;
+
+    color:#0f766e;
+}
+
+.pink{
+    color:#db2777;
+}
+
+.blue{
+    color:#2563eb;
+}
+
+.purple{
+    color:#7c3aed;
+}
+
+.green{
+    color:#059669;
+}
+
+.orange{
+    color:#ea580c;
+}
+
+
+/* =====================================================
+   INTRO
+===================================================== */
+
+.intro{
+
+    font-size:22px !important;
+
+    color:#4c1d95;
+
+    font-weight:500;
+
+    padding:25px;
+
+    background:
+    linear-gradient(
+        135deg,
+        #f5f3ff,
+        #ecfeff
+    );
+
+    border-radius:18px;
+
+    margin-bottom:35px;
+}
+
+
+/* =====================================================
+   TABLE OF CONTENTS
+===================================================== */
+
+.toc{
+
+    padding:32px;
+
+    margin:40px 0;
+
+    border-radius:22px;
+
+    background:
+    linear-gradient(
+        135deg,
+        #eef2ff,
+        #fdf2f8
+    );
+
+    border:
+    1px solid #ddd6fe;
+}
+
+.toc-title{
+
+    font-size:25px;
+
+    font-weight:800;
+
+    color:#4c1d95;
+
+    margin-bottom:15px;
+}
+
+.toc a{
+
+    display:block;
+
+    padding:8px 0;
+
+    color:#4338ca;
+
+    text-decoration:none;
+
+    transition:.25s;
+}
+
+.toc a:hover{
+
+    transform:
+    translateX(8px);
+
+    color:#db2777;
+}
+
+
+/* =====================================================
+   QUOTE
+===================================================== */
+
+.quote{
+
+    padding:32px;
+
+    margin:45px 0;
+
+    border-radius:
+    0 20px 20px 0;
+
+    border-left:
+    7px solid #8b5cf6;
+
+    background:
+    linear-gradient(
+        135deg,
+        #f5f3ff,
+        #eef2ff
+    );
+
+    font-size:23px;
+
+    font-style:italic;
+
+    color:#4c1d95;
+}
+
+
+/* =====================================================
+   CARDS
+===================================================== */
+
+.cards{
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(3,1fr);
+
+    gap:20px;
+
+    margin:40px 0;
+}
+
+.card{
+
+    padding:30px;
+
+    border-radius:20px;
+
+    border:
+    1px solid #e5e7eb;
+
+    background:
+    linear-gradient(
+        135deg,
+        #fff,
+        #f8fafc
+    );
+
+    transition:.3s;
+}
+
+.card:hover{
+
+    transform:
+    translateY(-8px);
+
+    box-shadow:
+    0 20px 35px
+    rgba(0,0,0,.10);
+}
+
+.card-icon{
+
+    font-size:35px;
+
+    margin-bottom:10px;
+}
+
+.card-number{
+
+    font-size:30px;
+
+    font-weight:900;
+
+    color:#7c3aed;
+}
+
+.card h3{
+    margin-top:8px;
+}
+
+
+/* =====================================================
+   COLOUR SECTIONS
+===================================================== */
+
+.color-section{
+
+    margin:50px 0;
+
+    padding:35px;
+
+    border-radius:22px;
+}
+
+.purple-bg{
+
+    background:
+    linear-gradient(
+        135deg,
+        #ede9fe,
+        #ddd6fe
+    );
+}
+
+.blue-bg{
+
+    background:
+    linear-gradient(
+        135deg,
+        #dbeafe,
+        #cffafe
+    );
+}
+
+.pink-bg{
+
+    background:
+    linear-gradient(
+        135deg,
+        #fce7f3,
+        #fae8ff
+    );
+}
+
+.green-bg{
+
+    background:
+    linear-gradient(
+        135deg,
+        #d1fae5,
+        #ccfbf1
+    );
+}
+
+.orange-bg{
+
+    background:
+    linear-gradient(
+        135deg,
+        #ffedd5,
+        #fef3c7
+    );
+}
+
+
+/* =====================================================
+   LISTS
+===================================================== */
+
+.article ul{
+
+    margin:
+    20px 0
+    30px
+    28px;
+}
+
+.article li{
+
+    margin-bottom:12px;
+
+    font-size:17px;
+}
+
+
+/* =====================================================
+   STATISTICS
+===================================================== */
+
+.stats{
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(4,1fr);
+
+    gap:15px;
+
+    margin:45px 0;
+}
+
+.stat{
+
+    text-align:center;
+
+    padding:25px 15px;
+
+    border-radius:18px;
+
+    color:white;
+
+    background:
+    linear-gradient(
+        135deg,
+        #312e81,
+        #7c3aed
+    );
+}
+
+.stat strong{
+
+    display:block;
+
+    font-size:30px;
+}
+
+.stat span{
+
+    font-size:13px;
+
+    color:#ddd;
+}
+
+
+/* =====================================================
+   TABLE
+===================================================== */
+
+.table-wrap{
+
+    overflow-x:auto;
+
+    margin:40px 0;
+}
+
+table{
+
+    width:100%;
+
+    border-collapse:collapse;
+
+    min-width:700px;
+
+    overflow:hidden;
+
+    border-radius:15px;
+}
+
+th{
+
+    background:
+    linear-gradient(
+        90deg,
+        #312e81,
+        #7c3aed
+    );
+
+    color:white;
+
+    padding:17px;
+
+    text-align:left;
+}
+
+td{
+
+    padding:16px;
+
+    border-bottom:
+    1px solid #e5e7eb;
+}
+
+tr:nth-child(even){
+
+    background:#f5f3ff;
+}
+
+
+/* =====================================================
+   CHECKLIST
+===================================================== */
+
+.checklist{
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(2,1fr);
+
+    gap:15px;
+
+    margin:30px 0;
+}
+
+.check{
+
+    padding:18px;
+
+    border-radius:14px;
+
+    background:#ecfdf5;
+
+    border-left:
+    5px solid #10b981;
+}
+
+
+/* =====================================================
+   FORM
+===================================================== */
+
+.form-box{
+
+    margin-top:70px;
+
+    padding:40px;
+
+    border-radius:25px;
+
+    background:
+    linear-gradient(
+        135deg,
+        #111827,
+        #312e81,
+        #4c1d95
+    );
+
+    color:white;
+}
+
+.form-box h2{
+
+    color:white;
+
+    margin-top:0;
+}
+
+.form-box p{
+
+    color:#d1d5db;
+}
+
+.form-group{
+
+    margin-bottom:20px;
+}
+
+.form-group label{
+
+    display:block;
+
+    margin-bottom:7px;
+
+    font-weight:bold;
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select{
+
+    width:100%;
+
+    padding:14px;
+
+    border:1px solid #555;
+
+    border-radius:10px;
+
+    background:#111827;
+
+    color:white;
+
+    outline:none;
+}
+
+.form-group textarea{
+
+    min-height:130px;
+
+    resize:vertical;
+}
+
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus{
+
+    border-color:#a78bfa;
+
+    box-shadow:
+    0 0 0 3px
+    rgba(167,139,250,.15);
+}
+
+.submit-btn{
+
+    border:0;
+
+    padding:13px 25px;
+
+    border-radius:10px;
+
+    background:
+    linear-gradient(
+        90deg,
+        #ec4899,
+        #8b5cf6
+    );
+
+    color:white;
+
+    font-weight:bold;
+
+    cursor:pointer;
+
+    font-size:15px;
+}
+
+
+/* =====================================================
+   AUTHOR
+===================================================== */
+
+.author{
+
+    margin-top:65px;
+
+    padding:35px;
+
+    border-radius:22px;
+
+    background:
+    linear-gradient(
+        135deg,
+        #fdf2f8,
+        #f5f3ff
+    );
+
+    border:
+    1px solid #e9d5ff;
+}
+
+.author-name{
+
+    font-size:30px;
+
+    font-weight:900;
+
+    color:#4c1d95;
+}
+
+.email{
+
+    color:#db2777;
+
+    font-weight:bold;
+
+    text-decoration:none;
+}
+
+
+/* =====================================================
+   SHARE
+===================================================== */
+
+.share{
+
+    padding-top:30px;
+
+    margin-top:45px;
+
+    border-top:
+    1px solid #ddd;
+}
+
+.share button{
+
+    border:0;
+
+    padding:12px 20px;
+
+    margin:8px 5px 0 0;
+
+    border-radius:10px;
+
+    color:white;
+
+    background:#111827;
+
+    cursor:pointer;
+}
+
+
+/* =====================================================
+   FOOTER
+===================================================== */
+
+footer{
+
+    margin-top:80px;
+
+    padding:70px 20px;
+
+    text-align:center;
+
+    color:#9ca3af;
+
+    background:
+    linear-gradient(
+        135deg,
+        #050505,
+        #111827
+    );
+}
+
+footer h2{
+
+    color:white;
+
+    font-size:30px;
+
+    margin-bottom:10px;
+}
+
+footer .footer-name{
+
+    color:#a78bfa;
+
+    font-weight:bold;
+}
+
+
+/* =====================================================
+   DARK MODE
+===================================================== */
+
+body.dark{
+
+    background:#070714;
+
+    color:#e5e7eb;
+}
+
+body.dark .article{
+
+    background:#111122;
+
+    box-shadow:none;
+}
+
+body.dark .toc,
+body.dark .card,
+body.dark .author{
+
+    background:#1b1b30;
+
+    border-color:#343450;
+}
+
+body.dark .article h2{
+
+    color:#c4b5fd;
+}
+
+body.dark .article h3{
+
+    color:#5eead4;
+}
+
+body.dark .intro{
+
+    background:#211b35;
+
+    color:#ddd6fe;
+}
+
+body.dark .quote{
+
+    background:#211b35;
+
+    color:#ddd6fe;
+}
+
+body.dark td{
+
+    border-color:#343450;
+}
+
+body.dark tr:nth-child(even){
+
+    background:#1c1c30;
+}
+
+body.dark .caption{
+
+    color:#9ca3af;
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media(max-width:850px){
+
+    .navbar{
+
+        padding:
+        15px 20px;
+    }
+
+    .nav a{
+
+        display:none;
+    }
+
+    .hero{
+
+        padding:
+        80px 25px;
+    }
+
+    .hero h1{
+
+        font-size:52px;
+
+        letter-spacing:-2px;
+    }
+
+    .hero-description{
+
+        font-size:18px;
+    }
+
+    .article-inner{
+
+        padding:27px;
+    }
+
+    .main-image{
+
+        height:280px;
+    }
+
+    .article h2{
+
+        font-size:31px;
+    }
+
+    .article p{
+
+        font-size:17px;
+    }
+
+    .cards{
+
+        grid-template-columns:1fr;
+    }
+
+    .stats{
+
+        grid-template-columns:
+        repeat(2,1fr);
+    }
+
+    .checklist{
+
+        grid-template-columns:1fr;
+    }
+
+    .image-box img{
+
+        height:270px;
+    }
+}
+
+@media(max-width:500px){
+
+    .stats{
+
+        grid-template-columns:1fr;
+    }
+
+    .hero h1{
+
+        font-size:45px;
+    }
+}
+
+</style>
+</head>
+
+
+<body>
+
+
+<!-- READING PROGRESS -->
+
+<div id="progress"></div>
+
+
+<!-- NAVBAR -->
+
+<header class="navbar">
+
+<div class="logo">
+SPACE<span>VERSE</span>
+</div>
+
+<nav class="nav">
+
+<a href="#home">Home</a>
+
+<a href="#contents">Contents</a>
+
+<a href="#about">Author</a>
+
+<button
+class="theme"
+onclick="toggleDark()">
+🌙
+</button>
+
+</nav>
+
+</header>
+
+
+<!-- HERO -->
+
+<section class="hero" id="home">
+
+<div class="stars"></div>
+
+<div class="hero-content">
+
+<span class="badge">
+Long Read • Space • Science
+</span>
+
+<h1>
+Beyond <span class="gradient-text">Earth</span>
+</h1>
+
+<p class="hero-description">
+
+A deep journey through space exploration, planets, stars,
+galaxies, astronauts, technology and the possibility of a
+future where humanity explores worlds beyond our own.
+
+</p>
+
+<div class="hero-info">
+
+<span>✍️ Yuvraj Singh Rathore</span>
+
+<span>•</span>
+
+<span>📅 October 2026</span>
+
+<span>•</span>
+
+<span>⏱️ 25+ min read</span>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- MAIN -->
+
+<main class="container">
+
+<article class="article">
+
+
+<!-- IMAGE 1 -->
+
+<img
+class="main-image"
+src="https://images.unsplash.com/photo-1446776811953-b23d57bd21aa?auto=format&fit=crop&w=1800&q=85"
+alt="Earth from space"
+>
+
+
+<div class="article-inner">
+
+
+<p class="intro">
+
+For thousands of years, human beings have looked at the night sky
+and wondered what exists beyond the horizon. Today, technology is
+allowing us to move from simply looking at the stars to actually
+exploring space.
+
+</p>
+
+
+<p>
+
+Space is one of the greatest frontiers of human curiosity. The
+universe contains billions of galaxies, enormous clouds of gas,
+countless stars and an extraordinary variety of planets and other
+objects.
+
+</p>
+
+<p>
+
+The story of space exploration is therefore not just a story about
+rockets and astronauts. It is a story about curiosity, science,
+engineering, courage and the human desire to understand our place in
+the universe.
+
+</p>
+
+
+<!-- CONTENTS -->
+
+<div class="toc" id="contents">
+
+<div class="toc-title">
+🚀 Explore The Journey
+</div>
+
+<a href="#section1">
+01 — Why Humans Explore Space
+</a>
+
+<a href="#section2">
+02 — Understanding Our Solar System
+</a>
+
+<a href="#section3">
+03 — The Sun and the Stars
+</a>
+
+<a href="#section4">
+04 — Planets and Worlds
+</a>
+
+<a href="#section5">
+05 — The Moon and Human Exploration
+</a>
+
+<a href="#section6">
+06 — Mars and the Search for Life
+</a>
+
+<a href="#section7">
+07 — Telescopes and Deep Space
+</a>
+
+<a href="#section8">
+08 — Life in Space
+</a>
+
+<a href="#section9">
+09 — Space Technology
+</a>
+
+<a href="#section10">
+10 — The Future of Space Exploration
+</a>
+
+<a href="#section11">
+11 — Challenges of Exploring Space
+</a>
+
+<a href="#section12">
+12 — Could Humans Live Beyond Earth?
+</a>
+
+<a href="#conclusion">
+13 — Conclusion
+</a>
+
+</div>
+
+
+<!-- SECTION 1 -->
+
+<h2 id="section1">
+01 — Why Humans Explore Space
+</h2>
+
+<p>
+
+Human curiosity is one of the strongest reasons for exploring space.
+Throughout history, people have watched the Moon, planets and stars
+and tried to understand their movements.
+
+</p>
+
+<p>
+
+Scientific exploration helps us answer fundamental questions.
+How did planets form? How are stars born? Are there other worlds
+with conditions suitable for life? How did our own planet become
+capable of supporting living organisms?
+
+</p>
+
+<p>
+
+Space exploration also encourages technological development.
+Engineers designing spacecraft must solve extremely difficult
+problems involving communication, navigation, energy and materials.
+
+</p>
+
+<div class="quote">
+
+“Exploration begins with a question: What is beyond what we already
+know?”
+
+</div>
+
+
+<div class="stats">
+
+<div class="stat">
+
+<strong>🌎</strong>
+
+<span>Our Home Planet</span>
+
+</div>
+
+<div class="stat">
+
+<strong>🌙</strong>
+
+<span>Earth's Natural Satellite</span>
+
+</div>
+
+<div class="stat">
+
+<strong>☀️</strong>
+
+<span>Our Star</span>
+
+</div>
+
+<div class="stat">
+
+<strong>🌌</strong>
+
+<span>The Wider Universe</span>
+
+</div>
+
+</div>
+
+
+<!-- SECTION 2 -->
+
+<h2 id="section2">
+02 — Understanding Our Solar System
+</h2>
+
+<p>
+
+Our solar system is a fascinating collection of objects held
+together primarily by gravity. At its center is the Sun, while
+planets, moons, asteroids and comets travel through the surrounding
+space.
+
+</p>
+
+<p>
+
+The eight recognized planets have very different characteristics.
+Some are rocky worlds, while others are much larger and dominated by
+thick atmospheres and layers of gas or ice.
+
+</p>
+
+<div class="table-wrap">
+
+<table>
+
+<tr>
+
+<th>Planet</th>
+
+<th>Type</th>
+
+<th>Interesting Feature</th>
+
+</tr>
+
+<tr>
+
+<td>Mercury</td>
+
+<td>Rocky</td>
+
+<td>Closest planet to the Sun</td>
+
+</tr>
+
+<tr>
+
+<td>Venus</td>
+
+<td>Rocky</td>
+
+<td>Extremely thick atmosphere</td>
+
+</tr>
+
+<tr>
+
+<td>Earth</td>
+
+<td>Rocky</td>
+
+<td>Known to support life</td>
+
+</tr>
+
+<tr>
+
+<td>Mars</td>
+
+<td>Rocky</td>
+
+<td>Evidence of ancient water</td>
+
+</tr>
+
+<tr>
+
+<td>Jupiter</td>
+
+<td>Gas giant</td>
+
+<td>Largest planet</td>
+
+</tr>
+
+<tr>
+
+<td>Saturn</td>
+
+<td>Gas giant</td>
+
+<td>Famous ring system</td>
+
+</tr>
+
+<tr>
+
+<td>Uranus</td>
+
+<td>Ice giant</td>
+
+<td>Extreme axial tilt</td>
+
+</tr>
+
+<tr>
+
+<td>Neptune</td>
+
+<td>Ice giant</td>
+
+<td>Very strong winds</td>
+
+</tr>
+
+</table>
+
+</div>
+
+
+<!-- IMAGE 2 -->
+
+<div class="image-box">
+
+<img
+src="https://images.unsplash.com/photo-1534791547706-1f9abb2c0c2a?auto=format&fit=crop&w=1600&q=85"
+alt="Galaxy and stars"
+>
+
+<div class="caption">
+
+The night sky contains an enormous number of stars and distant
+objects.
+
+</div>
+
+</div>
+
+
+<!-- SECTION 3 -->
+
+<h2 id="section3">
+03 — The Sun and the Stars
+</h2>
+
+<p>
+
+The Sun is the star at the center of our solar system. Its energy
+makes life on Earth possible and drives many of the processes that
+shape our planet's environment.
+
+</p>
+
+<p>
+
+Stars are enormous objects made primarily of extremely hot plasma.
+They are born inside clouds of gas and dust and can exist for
+millions or billions of years depending on their characteristics.
+
+</p>
+
+<div class="color-section orange-bg">
+
+<h3 class="orange">
+☀️ Why Stars Matter
+</h3>
+
+<p>
+
+Stars are more than points of light. They are important laboratories
+for understanding physics, chemistry and the history of the
+universe.
+
+</p>
+
+</div>
+
+
+<p>
+
+When stars change or eventually reach the end of their lives, they
+can create and distribute elements that become part of future stars,
+planets and other objects.
+
+</p>
+
+
+<!-- SECTION 4 -->
+
+<h2 id="section4">
+04 — Planets and Worlds
+</h2>
+
+<p>
+
+One of the most exciting discoveries of modern astronomy is that
+planets exist beyond our solar system. These worlds are known as
+exoplanets.
+
+</p>
+
+<p>
+
+Scientists study distant planets using telescopes and other
+instruments. In some cases, they can learn about a planet's size,
+orbit and atmosphere.
+
+</p>
+
+<p>
+
+The search for potentially habitable worlds is especially
+interesting because it connects astronomy with one of humanity's
+oldest questions: Are we alone?
+
+</p>
+
+<div class="cards">
+
+<div class="card">
+
+<div class="card-icon">
+🪐
+</div>
+
+<h3 class="purple">
+Exoplanets
+</h3>
+
+<p>
+Planets that orbit stars outside our solar system.
+</p>
+
+</div>
+
+<div class="card">
+
+<div class="card-icon">
+🌡️
+</div>
+
+<h3 class="orange">
+Atmospheres
+</h3>
+
+<p>
+Scientists can study the gases surrounding distant worlds.
+</p>
+
+</div>
+
+<div class="card">
+
+<div class="card-icon">
+🔭
+</div>
+
+<h3 class="blue">
+Observation
+</h3>
+
+<p>
+Powerful telescopes help scientists study distant planets.
+</p>
+
+</div>
+
+</div>
+
+
+<!-- SECTION 5 -->
+
+<h2 id="section5">
+05 — The Moon and Human Exploration
+</h2>
+
+<p>
+
+The Moon has been a major focus of human space exploration. It is
+close enough to Earth to make detailed missions possible while
+remaining a challenging environment for spacecraft and astronauts.
+
+</p>
+
+<p>
+
+Lunar missions have helped scientists learn more about the Moon's
+surface, geological history and relationship with Earth.
+
+</p>
+
+<p>
+
+The Moon may also become an important location for future scientific
+research and technology demonstrations.
+
+</p>
+
+
+<!-- IMAGE 3 -->
+
+<div class="image-box">
+
+<img
+src="https://images.unsplash.com/photo-1444703686981-a3abbc4d4fe3?auto=format&fit=crop&w=1600&q=85"
+alt="Moon and night sky"
+>
+
+<div class="caption">
+
+The Moon has inspired scientific research, exploration and human
+imagination for generations.
+
+</div>
+
+</div>
+
+
+<!-- SECTION 6 -->
+
+<h2 id="section6">
+06 — Mars and the Search for Life
+</h2>
+
+<p>
+
+Mars is one of the most studied planets beyond Earth. Its surface
+contains valleys, mountains, plains and polar regions, and evidence
+suggests that liquid water existed there in the distant past.
+
+</p>
+
+<p>
+
+Robotic missions have been studying Mars for decades. Rovers and
+orbiters can collect information about rocks, soil, atmosphere and
+weather.
+
+</p>
+
+<p>
+
+One of the major scientific questions is whether Mars ever had
+conditions suitable for microbial life.
+
+</p>
+
+<div class="color-section red-bg"
+style="background:linear-gradient(135deg,#fee2e2,#ffedd5);">
+
+<h3 class="orange">
+🔴 Why Mars?
+</h3>
+
+<p>
+
+Mars is relatively close to Earth and has several characteristics
+that make it an important target for planetary science. Studying Mars
+can also help researchers understand how planets change over time.
+
+</p>
+
+</div>
+
+
+<!-- SECTION 7 -->
+
+<h2 id="section7">
+07 — Telescopes and Deep Space
+</h2>
+
+<p>
+
+Space telescopes allow astronomers to observe objects that are
+extremely distant. Because Earth's atmosphere can interfere with
+certain types of observations, placing instruments above the
+atmosphere provides important scientific advantages.
+
+</p>
+
+<p>
+
+Modern observatories can observe galaxies, stars, nebulae and other
+objects across different wavelengths of light.
+
+</p>
+
+<p>
+
+Every deep-space observation is also a look into history. Because
+light takes time to travel, distant objects are observed as they were
+when their light began its journey toward Earth.
+
+</p>
+
+
+<!-- IMAGE 4 -->
+
+<div class="image-box">
+
+<img
+src="https://images.unsplash.com/photo-1462331940025-496dfbfc7564?auto=format&fit=crop&w=1600&q=85"
+alt="Deep space galaxy"
+>
+
+<div class="caption">
+
+Deep-space observations allow astronomers to investigate the history
+and structure of the universe.
+
+</div>
+
+</div>
+
+
+<!-- SECTION 8 -->
+
+<h2 id="section8">
+08 — Life in Space
+</h2>
+
+<p>
+
+Living and working in space is fundamentally different from living
+on Earth. Astronauts must operate in environments with limited
+resources, unusual gravity conditions and significant technical
+constraints.
+
+</p>
+
+<p>
+
+Spacecraft need systems that provide air, water, food, temperature
+control and protection from the harsh environment outside.
+
+</p>
+
+<h3 class="green">
+Important requirements for long missions
+</h3>
+
+<div class="checklist">
+
+<div class="check">
+✓ Reliable life-support systems
+</div>
+
+<div class="check">
+✓ Clean water supplies
+</div>
+
+<div class="check">
+✓ Food storage and production
+</div>
+
+<div class="check">
+✓ Radiation protection
+</div>
+
+<div class="check">
+✓ Communication systems
+</div>
+
+<div class="check">
+✓ Medical support
+</div>
+
+</div>
+
+
+<!-- SECTION 9 -->
+
+<h2 id="section9">
+09 — Space Technology
+</h2>
+
+<p>
+
+Space exploration depends on advanced technology. Rockets must
+generate enormous amounts of thrust to overcome Earth's gravity.
+Spacecraft must navigate accurately and communicate across huge
+distances.
+
+</p>
+
+<p>
+
+Satellites also play important roles in everyday life. They can
+support communication, navigation, weather observation and scientific
+research.
+
+</p>
+
+<div class="stats">
+
+<div class="stat">
+<strong>🚀</strong>
+<span>Launch Vehicles</span>
+</div>
+
+<div class="stat">
+<strong>🛰️</strong>
+<span>Satellites</span>
+</div>
+
+<div class="stat">
+<strong>🔭</strong>
+<span>Observatories</span>
+</div>
+
+<div class="stat">
+<strong>🤖</strong>
+<span>Robotic Missions</span>
+</div>
+
+</div>
+
+
+<!-- SECTION 10 -->
+
+<h2 id="section10">
+10 — The Future of Space Exploration
+</h2>
+
+<p>
+
+The future of space exploration may involve a combination of robotic
+missions, scientific observatories and human exploration.
+
+</p>
+
+<p>
+
+Robotic spacecraft are particularly useful because they can travel
+into dangerous environments without putting human lives at risk.
+Humans, however, have unique abilities to make decisions, repair
+equipment and respond creatively to unexpected situations.
+
+</p>
+
+<p>
+
+Future missions could investigate the Moon, Mars, asteroids and
+distant regions of the solar system.
+
+</p>
+
+<div class="color-section purple-bg">
+
+<h3 class="purple">
+🚀 A New Era of Exploration
+</h3>
+
+<p>
+
+The next generation of space exploration may be defined by
+international cooperation, reusable technologies, advanced robotics
+and increasingly powerful scientific instruments.
+
+</p>
+
+</div>
+
+
+<!-- IMAGE 5 -->
+
+<div class="image-box">
+
+<img
+src="https://images.unsplash.com/photo-1517976547714-720226b864c1?auto=format&fit=crop&w=1600&q=85"
+alt="Rocket launch"
+>
+
+<div class="caption">
+
+Rocket technology continues to develop as humanity prepares for
+future missions beyond Earth.
+
+</div>
+
+</div>
+
+
+<!-- SECTION 11 -->
+
+<h2 id="section11">
+11 — Challenges of Exploring Space
+</h2>
+
+<p>
+
+Space exploration is extremely difficult. Every mission requires
+careful planning because repairs that are simple on Earth can be
+impossible when a spacecraft is millions of kilometres away.
+
+</p>
+
+<p>
+
+Radiation, extreme temperatures, communication delays and limited
+resources are only some of the challenges that engineers and
+scientists must consider.
+
+</p>
+
+<table>
+
+<tr>
+
+<th>Challenge</th>
+
+<th>Why It Matters</th>
+
+</tr>
+
+<tr>
+
+<td>Distance</td>
+
+<td>Communication and travel can take significant time.</td>
+
+</tr>
+
+<tr>
+
+<td>Radiation</td>
+
+<td>Can create risks for equipment and humans.</td>
+
+</tr>
+
+<tr>
+
+<td>Resources</td>
+
+<td>Water, food and energy must be carefully managed.</td>
+
+</tr>
+
+<tr>
+
+<td>Temperature</td>
+
+<td>Space environments can be extremely harsh.</td>
+
+</tr>
+
+<tr>
+
+<td>Cost</td>
+
+<td>Complex missions require major engineering resources.</td>
+
+</tr>
+
+</table>
+
+
+<!-- SECTION 12 -->
+
+<h2 id="section12">
+12 — Could Humans Live Beyond Earth?
+</h2>
+
+<p>
+
+The idea of humans living beyond Earth has fascinated scientists,
+writers and explorers for decades.
+
+</p>
+
+<p>
+
+A permanent settlement away from Earth would require reliable
+sources of water, food, energy and shelter. It would also require
+solutions for radiation, medical emergencies and long-term human
+health.
+
+</p>
+
+<p>
+
+At present, Earth remains our home and provides a uniquely suitable
+environment for human life. Future exploration should therefore be
+seen not as abandoning Earth, but as expanding scientific knowledge
+and developing new capabilities.
+
+</p>
+
+<div class="quote">
+
+“Exploring another world begins with understanding the world we
+already call home.”
+
+</div>
+
+
+<!-- EXTRA LONG SECTION -->
+
+<h2>
+13 — Why Space Exploration Matters to Earth
+</h2>
+
+<p>
+
+It may seem strange that studying distant planets can help people on
+Earth. However, space science has produced knowledge and technologies
+that can be useful in many areas.
+
+</p>
+
+<p>
+
+Earth-observing satellites help scientists study weather, climate,
+natural disasters and environmental changes.
+
+</p>
+
+<p>
+
+Space missions also encourage students to study physics, mathematics,
+engineering, computer science and other scientific subjects.
+
+</p>
+
+<p>
+
+Perhaps the greatest benefit is inspiration. Looking beyond Earth
+reminds humanity that our planet is part of something much larger.
+
+</p>
+
+
+<h2>
+14 — The Importance of Curiosity
+</h2>
+
+<p>
+
+Curiosity is often the first step toward discovery. A simple
+question can eventually lead to years of research and technological
+development.
+
+</p>
+
+<p>
+
+Space exploration demonstrates what can happen when scientists,
+engineers and communities work together toward a difficult goal.
+
+</p>
+
+<p>
+
+The universe contains many unanswered questions. We may not know all
+the answers today, but each generation can contribute something new
+to our understanding.
+
+</p>
+
+
+<!-- CONCLUSION -->
+
+<h2 id="conclusion">
+15 — Conclusion: Looking Beyond the Horizon
+</h2>
+
+<p>
+
+Space exploration represents one of humanity's greatest scientific
+adventures. It combines physics, engineering, mathematics,
+astronomy, computer science and human curiosity.
+
+</p>
+
+<p>
+
+From observing the Moon to studying distant galaxies, every mission
+adds another piece to our understanding of the universe.
+
+</p>
+
+<p>
+
+The future may bring new discoveries that are difficult to imagine
+today. New spacecraft, telescopes and scientific instruments could
+change our understanding of planets, stars and even the possibility
+of life elsewhere.
+
+</p>
+
+<p>
+
+But perhaps the most important lesson of space exploration is that
+curiosity has no final destination.
+
+</p>
+
+<p>
+
+There will always be another question, another planet, another star
+and another mystery waiting to be explored.
+
+</p>
+
+<div class="quote">
+
+🌌 The universe is vast, but human curiosity can reach surprisingly
+far.
+
+</div>
+
+
+<!-- AUTHOR -->
+
+<div class="author" id="about">
+
+<div class="author-name">
+Yuvraj Singh Rathore
+</div>
+
+<p>
+
+Writer & Creator of this long-form article.
+
+</p>
+
+<p>
+
+Interested in technology, science, creativity and the future.
+
+</p>
+
+<p>
+
+📧 Contact:
+
+<a
+class="email"
+href="mailto:yuvrajsrathore3711@gmail.com">
+
+yuvrajsrathore3711@gmail.com
+
+</a>
+
+</p>
+
+</div>
+
+
+<!-- FORM -->
+
+<div class="form-box">
+
+<h2>
+📝 Send Your Feedback
+</h2>
+
+<p>
+
+What did you think about this article? Fill in the form below.
+
+</p>
+
+<form onsubmit="submitForm(event)">
+
+<div class="form-group">
+
+<label>
+Your Name
+</label>
+
+<input
+type="text"
+placeholder="Enter your name"
+required
+>
+
+</div>
+
+
+<div class="form-group">
+
+<label>
+Your Email
+</label>
+
+<input
+type="email"
+placeholder="Enter your email"
+required
+>
+
+</div>
+
+
+<div class="form-group">
+
+<label>
+Which part did you like?
+</label>
+
+<select required>
+
+<option value="">
+Select an option
+</option>
+
+<option>
+Space Exploration
+</option>
+
+<option>
+Planets
+</option>
+
+<option>
+Future Technology
+</option>
+
+<option>
+Astronomy
+</option>
+
+<option>
+Life Beyond Earth
+</option>
+
+</select>
+
+</div>
+
+
+<div class="form-group">
+
+<label>
+Your Message
+</label>
+
+<textarea
+placeholder="Write your feedback..."
+required>
+</textarea>
+
+</div>
+
+
+<button
+class="submit-btn"
+type="submit">
+
+Send Feedback 🚀
+
+</button>
+
+</form>
+
+</div>
+
+
+<!-- SHARE -->
+
+<div class="share">
+
+<strong>
+📤 Share this article
+</strong>
+
+<br>
+
+<button onclick="shareArticle()">
+Share Article
+</button>
+
+<button onclick="copyLink()">
+Copy Link
+</button>
+
+</div>
+
+
+</div>
+
+</article>
+
+</main>
+
+
+<!-- FOOTER -->
+
+<footer>
+
+<h2>
+SPACE<span style="color:#a78bfa;">VERSE</span>
+</h2>
+
+<p>
+Exploring ideas beyond the horizon.
+</p>
+
+<br>
+
+<p class="footer-name">
+Created by Yuvraj Singh Rathore
+</p>
+
+<p>
+© 2026 All rights reserved.
+</p>
+
+<br>
+
+<a href="mailto:yuvrajsrathore3711@gmail.com">
+
+yuvrajsrathore3711@gmail.com
+
+</a>
+
+</footer>
+
+
+<script>
+
+/* =====================================================
+   DARK MODE
+===================================================== */
+
+function toggleDark(){
+
+    document.body.classList.toggle("dark");
+
+}
+
+
+/* =====================================================
+   READING PROGRESS
+===================================================== */
+
+window.addEventListener(
+"scroll",
+function(){
+
+    const scrollTop =
+    window.scrollY;
+
+    const pageHeight =
+    document.documentElement.scrollHeight
+    -
+    document.documentElement.clientHeight;
+
+    const progress =
+    (scrollTop / pageHeight) * 100;
+
+    document.getElementById(
+        "progress"
+    ).style.width =
+    progress + "%";
+
+});
+
+
+/* =====================================================
+   SHARE
+===================================================== */
+
+function shareArticle(){
+
+    if(navigator.share){
+
+        navigator.share({
+
+            title:
+            "Beyond Earth — Space Exploration",
+
+            text:
+            "Read this article by Yuvraj Singh Rathore.",
+
+            url:
+            window.location.href
+
+        });
+
+    }
+
+    else{
+
+        alert(
+        "Copy the website link and share it!"
+        );
+
+    }
+
+}
+
+
+/* =====================================================
+   COPY LINK
+===================================================== */
+
+function copyLink(){
+
+    navigator.clipboard.writeText(
+        window.location.href
+    );
+
+    alert(
+    "Website link copied!"
+    );
+
+}
+
+
+/* =====================================================
+   DEMO FORM
+===================================================== */
+
+function submitForm(event){
+
+    event.preventDefault();
+
+    alert(
+    "Thank you for your feedback! 🚀"
+    );
+
+}
+
+</script>
+
+
+</body>
+  </html>
